@@ -1,0 +1,103 @@
+body {
+    text-align: center;
+    font-family: 'Patrick Hand', sans-serif;
+    background-color: #fff8d6;
+    overflow-x: hidden;
+}
+
+/* Envelope */
+.envelope-container {
+    display: inline-block;
+    margin-top: 50px;
+    cursor: pointer;
+    width: 400px;
+    transition: opacity 0.8s ease;
+}
+
+.envelope-base {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Bouquet wrapper (cone-shaped, pointing down) */
+.bouquet-wrapper {
+    display: none;
+    position: relative;
+    width: 300px;
+    height: 250px;
+    margin: 20px auto;
+    background-color: #ffffff; /* white paper wrapper */
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%); /* triangle pointing down */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: scale(0.8);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Pop + bounce animation */
+@keyframes popBounce {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    80% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.bouquet-wrapper.show {
+    display: block;
+    animation: popBounce 1s ease forwards;
+}
+
+/* Ribbon */
+.ribbon {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 15px;
+    background-color: #ffc0cb; /* light pink ribbon */
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* Letter */
+#birthdayMsg {
+    display: none;
+    margin: 30px auto;
+    width: 85%;
+    max-width: 600px;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    background-color: #fffacd;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+#birthdayMsg.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    top: -10px;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nini!</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ====== Top Text ====== -->
+<div class="for-you-text" id="topText">Happy Birthday Nini!</div>
+
+<!-- ====== Envelope ====== -->
+<div class="envelope-container" id="envelopeContainer">
+    <img src="envelope_closed.png" class="envelope" id="envelope">
+    <div class="click-text">Click me!</div>
+</div>
+
+<!-- ====== Letter + Photo ====== -->
+<div class="letter-container" id="letterContainer">
+
+    <div class="message">
+        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you genuine happiness, freedom, and good health. Sana lagi mong alagaan ang sarili mo at huwag kalimutang magpahinga.</p>
+
+        <p>I know may mga silent battles ka na hindi mo pinapakita or sinasabi sa iba, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
+
+        <p>If ever na feel mo na walang makikinig sa’yo or feeling mo burden ka, please remember na nandito lang ako for you. I’ll always try my best to listen and comfort you, and I hope kahit papaano my presence can give you some peace.</p>
+
+        <p>Always remember that I’ll embrace you, especially during the times na you feel vulnerable. Don’t forget to always pray, Nini. Love you! Happy birthday ulit!</p>
+
+        <p>-KC</p>
+    </div>
+
+    <div class="photo-container">
+        <img src="nini_photo.png" class="photo">
+    </div>
+
+</div>
+
+<!-- ====== MUSIC ====== -->
+<audio id="bgMusic" src="eyes_without_a_face.mp3"></audio>
+
+<!-- ====== CONFETTI ====== -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+const envelope = document.getElementById("envelope");
+const letter = document.getElementById("letterContainer");
+const container = document.getElementById("envelopeContainer");
+const topText = document.getElementById("topText");
+const music = document.getElementById("bgMusic");
+
+letter.style.opacity = 0;
+
+envelope.addEventListener("click", () => {
+    if (!music.paused) {
+        music.pause();
+        music.currentTime = 0;
+    }
+
+    music.play().catch(() => {
+        alert("Tap again if music doesn’t play");
+    });
+
+    container.style.transition = "opacity 1s";
+    container.style.opacity = 0;
+    topText.style.transition = "opacity 1s";
+    topText.style.opacity = 0;
+
+    setTimeout(() => {
+        container.style.display = "none";
+        topText.style.display = "none";
+
+        letter.style.display = "flex";
+        letter.style.transition = "opacity 1s";
+        letter.style.opacity = 1;
+
+        confetti({
+            particleCount: 200,
+            spread: 100,
+            origin: { y: 0.6 },
+            colors: ['#ffeb3b', '#ffd54f', '#fff176', '#ffe082']
+        });
+
+        setTimeout(() => {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.5 },
+                colors: ['#ffeb3b', '#ffd54f', '#fff176']
+            });
+        }, 300);
+
+    }, 1000);
+});
+
+// Stop music when leaving
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        music.pause();
+        music.currentTime = 0;
+    }
+});
+
+window.addEventListener("beforeunload", () => {
+    music.pause();
+    music.currentTime = 0;
+});
+</script>
+
+</body>
+</html>

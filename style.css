@@ -72,7 +72,7 @@ body {
     100% { transform: scale(0); opacity: 0; }
 }
 
-/* 💌 ENVELOPE */
+/* 💌 ENVELOPE (BREATHING GLOW) */
 .envelope-container {
     margin-top: 30px;
     cursor: pointer;
@@ -82,17 +82,31 @@ body {
     width: 260px;
     max-width: 85vw;
 
-    filter: drop-shadow(0 0 10px rgba(255, 235, 59, 0.6));
-    animation: glowPulse 2s infinite ease-in-out;
+    animation: glowPulse 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 235, 59, 0.5));
 }
 
 @keyframes glowPulse {
-    0% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 235, 59, 0.5)); }
-    50% { transform: scale(1.05); filter: drop-shadow(0 0 18px rgba(255, 182, 193, 0.8)) drop-shadow(0 0 25px rgba(255, 235, 59, 0.7)); }
-    100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 235, 59, 0.5)); }
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 6px rgba(255, 235, 59, 0.35))
+                drop-shadow(0 0 10px rgba(255, 182, 193, 0.2));
+    }
+
+    50% {
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 18px rgba(255, 235, 59, 0.6))
+                drop-shadow(0 0 25px rgba(255, 182, 193, 0.4));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 6px rgba(255, 235, 59, 0.35))
+                drop-shadow(0 0 10px rgba(255, 182, 193, 0.2));
+    }
 }
 
-/* 📌 CLICK WRAPPER */
+/* 📌 CLICK AREA */
 .click-wrapper {
     display: flex;
     flex-direction: column;
@@ -100,7 +114,6 @@ body {
     margin-top: 10px;
 }
 
-/* ⬆ ARROW (STATIC SAME AS TEXT) */
 .arrow {
     font-size: 1.2rem;
     color: #b45309;
@@ -108,7 +121,6 @@ body {
     margin-bottom: 2px;
 }
 
-/* 💬 CLICK TEXT */
 .click-text {
     font-size: 1.2rem;
     color: #b45309;
@@ -126,15 +138,8 @@ body {
     width: 90%;
     max-width: 500px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    animation: popIn 0.8s ease;
 }
 
-@keyframes popIn {
-    from { transform: scale(0.6); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* 💬 TEXT */
 .message {
     text-align: left;
     font-size: 1rem;
@@ -144,9 +149,9 @@ body {
 /* ✍️ SIGNATURE */
 .signature {
     text-align: right;
+    margin-right: 20px;
     font-weight: bold;
-    margin-top: 15px;
-    color: #b45309;
+    color: #6ec6ff;
 }
 
 /* 📸 PHOTO */
@@ -155,8 +160,7 @@ body {
     max-width: 320px;
     margin-top: 10px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     border-radius: 10px;
 }
 

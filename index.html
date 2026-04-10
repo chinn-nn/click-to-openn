@@ -19,6 +19,12 @@
 
 <div class="title">Happy Birthday Nini!</div>
 
+<!-- ✨ SPARKLES -->
+<div class="sparkles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+
 <!-- 💌 ENVELOPE -->
 <div class="envelope-container" id="envelopeContainer">
     <img src="envelope_closed.png" class="envelope" id="envelope">
@@ -66,7 +72,7 @@ letter.style.display = "none";
 
 envelope.addEventListener("click", () => {
 
-    // 🎵 smooth fade-in music
+    // 🎵 smooth music fade-in
     music.volume = 0;
     music.play().then(() => {
         let fade = setInterval(() => {
@@ -123,7 +129,7 @@ envelope.addEventListener("click", () => {
     }, 800);
 });
 
-// ⛔ stop music when leaving tab/app
+// ⛔ stop music when leaving page/app
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         music.pause();

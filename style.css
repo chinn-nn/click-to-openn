@@ -4,13 +4,12 @@ body {
     padding: 0;
     text-align: center;
 
-    /* ✨ glowing yellow-pink gradient */
+    /* ✨ animated yellow-pink glow */
     background: linear-gradient(-45deg, #fff9c4, #f8bbd0, #fff176, #fce4ec);
     background-size: 400% 400%;
     animation: gradientGlow 10s ease infinite;
 }
 
-/* ✨ BACKGROUND ANIMATION */
 @keyframes gradientGlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -52,7 +51,6 @@ body {
     animation: popIn 0.8s ease;
 }
 
-/* ✨ LETTER POP */
 @keyframes popIn {
     from { transform: scale(0.6); opacity: 0; }
     to { transform: scale(1); opacity: 1; }

@@ -1,100 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Nini!</title>
+body {
+    font-family: 'Indie Flower', sans-serif;
+    background-color: #fff9c4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
-<!-- 🔒 IG PREVIEW (HIDDEN SURPRISE) -->
-<meta property="og:title" content="🎁 Click to open">
-<meta property="og:description" content="A surprise is waiting for you">
-<meta property="og:image" content="https://chinn-nn.github.io/click-to-openn/preview.jpeg">
-<meta property="og:url" content="https://chinn-nn.github.io/click-to-openn/">
-<meta name="twitter:card" content="summary_large_image">
+/* 💛 TOP TEXT */
+.for-you-text {
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #fbc02d;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
+/* 💌 ENVELOPE */
+.envelope-container {
+    margin-top: 30px;
+    cursor: pointer;
+}
 
-<body>
+.envelope {
+    width: 200px;
+    max-width: 70vw;
+}
 
-<!-- 💛 TOP TEXT -->
-<div class="for-you-text" id="topText">Happy Birthday Nini!</div>
+.click-text {
+    color: #f57f17;
+}
 
-<!-- 💌 ENVELOPE -->
-<div class="envelope-container" id="envelopeContainer">
-    <img src="envelope_closed.png" class="envelope" id="envelope">
-    <div class="click-text">Click me!</div>
-</div>
+/* 💛 LETTER */
+.letter-container {
+    display: none;
+    margin: 20px auto;
+    background: #fff8e1;
+    border-radius: 15px;
+    padding: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: popIn 0.8s ease;
+}
 
-<!-- 💛 LETTER -->
-<div class="letter-container" id="letterContainer">
-
-    <div class="message">
-        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you genuine happiness, freedom, and good health. Sana lagi mong alagaan ang sarili mo at huwag kalimutang magpahinga.</p>
-
-        <p>I know may mga silent battles ka na hindi mo pinapakita or sinasabi sa iba, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
-
-        <p>If ever na feel mo na walang makikinig sa’yo or feeling mo burden ka, please remember na nandito lang ako for you. I’ll always try my best to listen and comfort you, and I hope kahit papaano my presence can give you some peace.</p>
-
-        <p>By the way, I just want to take this chance to say thank you—thank you for believing in me and for encouraging me sa mga bagay na pinagdududahan ko, especially when it comes to myself. Thank you for listening to my rants and random kwentos, and thank you for being you—for being open sa akin. I really appreciate it.</p>
-
-        <p>Always remember that I’ll embrace you, especially during the times na you feel vulnerable. Don’t forget to always pray, Nini. Love you! Happy birthday ulit!</p>
-
-        <p>-KC</p>
-    </div>
-
-    <!-- 📸 NINI PHOTO (DECORATION UNDER LETTER) -->
-    <div class="photo-container">
-        <img src="nini_photo.png" class="photo">
-    </div>
-
-</div>
-
-<!-- 🎵 MUSIC -->
-<audio id="bgMusic" src="eyes_without_a_face.mp3"></audio>
-
-<!-- 🎉 CONFETTI -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script>
-const envelope = document.getElementById("envelope");
-const letter = document.getElementById("letterContainer");
-const container = document.getElementById("envelopeContainer");
-const music = document.getElementById("bgMusic");
-
-letter.style.display = "none";
-
-envelope.addEventListener("click", () => {
-
-    music.play().catch(() => {
-        alert("Tap again if music doesn't play");
-    });
-
-    container.style.opacity = 0;
-
-    setTimeout(() => {
-        container.style.display = "none";
-        letter.style.display = "block";
-
-        confetti({
-            particleCount: 200,
-            spread: 100,
-            origin: { y: 0.6 },
-            colors: ['#ffeb3b', '#ffd54f', '#fff176']
-        });
-
-    }, 800);
-});
-
-// stop music when leaving tab
-document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-        music.pause();
-        music.currentTime = 0;
+/* ✨ LETTER ANIMATION */
+@keyframes popIn {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
     }
-});
-</script>
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-</body>
-</html>
+/* 💬 MESSAGE */
+.message {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* 📸 NINI PHOTO */
+.photo-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.photo {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: photoPop 1s ease;
+}
+
+/* 🌟 PHOTO ANIMATION */
+@keyframes photoPop {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+    .for-you-text {
+        font-size: 1.5rem;
+    }
+
+    .photo {
+        max-width: 260px;
+    }
+}

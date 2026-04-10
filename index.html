@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Nini!</title>
 
-<!-- 🔒 IG PREVIEW -->
+<!-- 🔒 SOCIAL PREVIEW -->
 <meta property="og:title" content="🎁 Click to open">
 <meta property="og:description" content="A surprise is waiting for you">
 <meta property="og:image" content="https://chinn-nn.github.io/click-to-openn/preview.png">
@@ -18,7 +18,6 @@
 
 <body>
 
-<!-- 💛 TITLE -->
 <div class="title">Happy Birthday Nini!</div>
 
 <!-- 💌 ENVELOPE -->
@@ -31,16 +30,21 @@
 <div class="letter-container" id="letterContainer">
 
     <div class="message">
-        <p>Happy birthday, Nini! Thank you for everything. I hope your day brings you happiness and peace.</p>
 
-        <p>I know you have silent battles, and that’s okay. You will overcome them.</p>
+        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you genuine happiness, freedom, and good health. Sana lagi mong alagaan ang sarili mo at huwag kalimutang magpahinga.</p>
 
-        <p>Always remember I’m here for you.</p>
+        <p>I know may mga silent battles ka na hindi mo pinapakita or sinasabi sa iba, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
+
+        <p>If ever na feel mo na walang makikinig sa’yo or feeling mo burden ka, please remember na nandito lang ako for you. I’ll always try my best to listen and comfort you, and I hope kahit papaano my presence can give you some peace.</p>
+
+        <p>By the way, I just want to take this chance to say thank you—thank you for believing in me and for encouraging me sa mga bagay na pinagdududahan ko, especially when it comes to myself. Thank you for listening to my rants and random kwentos, and thank you for being you—for being open sa akin. I really appreciate it.</p>
+
+        <p>Always remember that I’ll embrace you, especially during the times na you feel vulnerable. Don’t forget to always pray, Nini. Love you! Happy birthday ulit!</p>
 
         <p>-KC</p>
+
     </div>
 
-    <!-- 📸 PHOTO -->
     <div class="photo-container">
         <img src="nini_photo.png" class="photo">
     </div>
@@ -50,7 +54,7 @@
 <!-- 🎵 MUSIC -->
 <audio id="bgMusic" src="eyes_without_a_face.mp3"></audio>
 
-<!-- 🎉 CONFETTI LIBRARY -->
+<!-- 🎉 CONFETTI -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
@@ -73,25 +77,20 @@ envelope.addEventListener("click", () => {
         container.style.display = "none";
         letter.style.display = "block";
 
-        // 🎉 CLASSIC CONFETTI (RESTORED)
-        let duration = 6000;
+        // 🌸 SLOW FALLING CONFETTI (RAIN EFFECT)
+        let duration = 8000;
         let end = Date.now() + duration;
 
         (function frame() {
 
             confetti({
-                particleCount: 8,
-                angle: 60,
-                spread: 100,
-                origin: { x: 0 },
-                colors: ['#ffeb3b', '#ffd54f', '#fff176', '#f8bbd0', '#f48fb1']
-            });
-
-            confetti({
-                particleCount: 8,
-                angle: 120,
-                spread: 100,
-                origin: { x: 1 },
+                particleCount: 3,
+                angle: 90,
+                spread: 60,
+                startVelocity: 25,
+                gravity: 0.8,
+                ticks: 300,
+                origin: { x: Math.random(), y: 0 },
                 colors: ['#ffeb3b', '#ffd54f', '#fff176', '#f8bbd0', '#f48fb1']
             });
 

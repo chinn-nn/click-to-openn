@@ -48,10 +48,9 @@
 
         <p>-KC</p>
 
-    </div>
+        <!-- 📸 PHOTO INSIDE LETTER -->
+        <img src="nini_photo.png" class="letter-photo">
 
-    <div class="photo-container">
-        <img src="nini_photo.png" class="photo">
     </div>
 
 </div>
@@ -72,7 +71,6 @@ letter.style.display = "none";
 
 envelope.addEventListener("click", () => {
 
-    // 🎵 smooth music fade-in
     music.volume = 0;
     music.play().then(() => {
         let fade = setInterval(() => {
@@ -90,7 +88,7 @@ envelope.addEventListener("click", () => {
         container.style.display = "none";
         letter.style.display = "block";
 
-        // 🌸 FLOATING PETALS (MIXED PINK + YELLOW)
+        // 🌸 FLOATING PETALS CONFETTI
         let duration = 10000;
         let end = Date.now() + duration;
 
@@ -129,7 +127,6 @@ envelope.addEventListener("click", () => {
     }, 800);
 });
 
-// ⛔ stop music when leaving page/app
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         music.pause();

@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Nini!</title>
 
-<!-- 🔒 IG PREVIEW (NO SPOILERS) -->
+<!-- 🔒 IG PREVIEW (NOW JPG) -->
 <meta property="og:title" content="🎁 Click to open">
 <meta property="og:description" content="A surprise is waiting for you">
-<meta property="og:image" content="https://chinn-nn.github.io/click-to-openn/preview.jpeg">
+<meta property="og:image" content="https://chinn-nn.github.io/click-to-openn/preview.jpg">
 <meta property="og:url" content="https://chinn-nn.github.io/click-to-openn/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -18,16 +18,13 @@
 
 <body>
 
-<!-- 💛 TOP TITLE -->
 <div class="for-you-text" id="topText">Happy Birthday Nini!</div>
 
-<!-- 💌 ENVELOPE -->
 <div class="envelope-container" id="envelopeContainer">
     <img src="envelope_closed.png" class="envelope" id="envelope">
     <div class="click-text">Click me!</div>
 </div>
 
-<!-- 💛 LETTER -->
 <div class="letter-container" id="letterContainer">
 
     <div class="message">
@@ -44,17 +41,14 @@
         <p>-KC</p>
     </div>
 
-    <!-- 📸 NINI PHOTO (UNDER LETTER) -->
     <div class="photo-container">
         <img src="nini_photo.png" class="photo">
     </div>
 
 </div>
 
-<!-- 🎵 MUSIC -->
 <audio id="bgMusic" src="eyes_without_a_face.mp3"></audio>
 
-<!-- 🎉 CONFETTI -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
@@ -87,7 +81,6 @@ envelope.addEventListener("click", () => {
     }, 800);
 });
 
-// stop music when leaving tab
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         music.pause();

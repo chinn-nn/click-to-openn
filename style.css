@@ -1,6 +1,6 @@
 body {
     font-family: 'Indie Flower', sans-serif;
-    background-color: #fff9c4; /* light yellow */
+    background-color: #fff9c4;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -24,7 +24,12 @@ body {
     max-width: 70vw;
 }
 
-/* 💛 LETTER BOX */
+.click-text {
+    font-size: 1rem;
+    color: #f57f17;
+}
+
+/* 💛 LETTER */
 .letter-container {
     display: none;
     margin: 20px auto;
@@ -37,10 +42,10 @@ body {
     animation: popIn 0.8s ease;
 }
 
-/* ✨ POP ANIMATION */
+/* ✨ LETTER ANIMATION */
 @keyframes popIn {
     from {
-        transform: scale(0.5);
+        transform: scale(0.6);
         opacity: 0;
     }
     to {
@@ -49,14 +54,14 @@ body {
     }
 }
 
-/* 💬 MESSAGE */
+/* 💬 TEXT */
 .message {
     text-align: left;
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-/* 📸 PHOTO (Nini + bouquet) */
+/* 📸 NINI PHOTO (DECORATION) */
 .photo-container {
     margin-top: 15px;
     display: flex;
@@ -65,31 +70,31 @@ body {
 
 .photo {
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     animation: photoPop 1s ease;
 }
 
-/* 🌟 PHOTO POP EFFECT */
+/* 🌟 PHOTO ANIMATION */
 @keyframes photoPop {
-    0% {
-        transform: scale(0.6);
+    from {
+        transform: scale(0.7);
         opacity: 0;
     }
-    100% {
+    to {
         transform: scale(1);
         opacity: 1;
     }
 }
 
-/* 📱 MOBILE FIX */
+/* 📱 MOBILE */
 @media (max-width: 600px) {
     .for-you-text {
         font-size: 1.5rem;
     }
 
     .photo {
-        max-width: 280px;
+        max-width: 260px;
     }
 }

@@ -107,7 +107,6 @@ envelope.addEventListener("click", () => {
         ];
 
         (function frame() {
-
             confetti({
                 particleCount: 2,
                 angle: 90,
@@ -126,7 +125,6 @@ envelope.addEventListener("click", () => {
             if (Date.now() < end) {
                 requestAnimationFrame(frame);
             }
-
         })();
 
     }, 800);

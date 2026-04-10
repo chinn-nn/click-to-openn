@@ -28,7 +28,11 @@
 <!-- 💌 ENVELOPE -->
 <div class="envelope-container" id="envelopeContainer">
     <img src="envelope_closed.png" class="envelope" id="envelope">
-    <div class="click-text">Click me!</div>
+
+    <div class="click-wrapper">
+        <div class="arrow">⬆</div>
+        <div class="click-text">Click me!</div>
+    </div>
 </div>
 
 <!-- 💛 LETTER -->
@@ -88,7 +92,6 @@ envelope.addEventListener("click", () => {
         container.style.display = "none";
         letter.style.display = "block";
 
-        // 🌸 FLOATING PETALS CONFETTI
         let duration = 10000;
         let end = Date.now() + duration;
 

@@ -3,87 +3,93 @@ body {
     background-color: #fff9c4; /* light yellow */
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    text-align: center;
 }
 
+/* 💛 TOP TEXT */
 .for-you-text {
     font-size: 2rem;
-    margin: 20px 0;
-    text-align: center;
+    margin-top: 20px;
     color: #fbc02d;
 }
 
+/* 💌 ENVELOPE */
 .envelope-container {
+    margin-top: 30px;
     cursor: pointer;
-    text-align: center;
-    margin: 10px;
 }
 
 .envelope {
-    max-width: 90%;
-    height: auto;
+    width: 200px;
+    max-width: 70vw;
 }
 
-.click-text {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #f57f17;
-}
-
+/* 💛 LETTER BOX */
 .letter-container {
     display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff8e1;
-    border: 2px solid #fbc02d;
+    margin: 20px auto;
+    background: #fff8e1;
     border-radius: 15px;
     padding: 15px;
-    max-width: 95%;
-    box-sizing: border-box;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: popIn 0.8s ease;
 }
 
+/* ✨ POP ANIMATION */
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 💬 MESSAGE */
 .message {
+    text-align: left;
     font-size: 1rem;
     line-height: 1.5rem;
-    text-align: left;
-    margin-bottom: 10px;
 }
 
+/* 📸 PHOTO (Nini + bouquet) */
 .photo-container {
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 .photo {
-    width: 90%;
-    max-width: 300px;
-    height: auto;
-    display: block;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: photoPop 1s ease;
 }
 
-/* Mobile responsiveness */
+/* 🌟 PHOTO POP EFFECT */
+@keyframes photoPop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 📱 MOBILE FIX */
 @media (max-width: 600px) {
     .for-you-text {
         font-size: 1.5rem;
     }
 
-    .click-text {
-        font-size: 0.9rem;
-    }
-
-    .message {
-        font-size: 0.9rem;
-        line-height: 1.2rem;
-    }
-
     .photo {
-        max-width: 250px;
-    }
-
-    .letter-container {
-        padding: 10px;
+        max-width: 280px;
     }
 }

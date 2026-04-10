@@ -30,13 +30,15 @@
 
     <div class="message">
 
-        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you happiness, freedom, and good health.</p>
+        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you genuine happiness, freedom, and good health. Sana lagi mong alagaan ang sarili mo at huwag kalimutang magpahinga.</p>
 
-        <p>I know may silent battles ka, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
+        <p>I know may mga silent battles ka na hindi mo pinapakita or sinasabi sa iba, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
 
-        <p>If ever you feel alone, I’m always here for you.</p>
+        <p>If ever na feel mo na walang makikinig sa’yo or feeling mo burden ka, please remember na nandito lang ako for you. I’ll always try my best to listen and comfort you, and I hope kahit papaano my presence can give you some peace.</p>
 
-        <p>Thank you for everything.</p>
+        <p>By the way, I just want to take this chance to say thank you—thank you for believing in me and for encouraging me sa mga bagay na pinagdududahan ko, especially when it comes to myself. Thank you for listening to my rants and random kwentos, and thank you for being you—for being open sa akin. I really appreciate it.</p>
+
+        <p>Always remember that I’ll embrace you, especially during the times na you feel vulnerable. Don’t forget to always pray, Nini. Love you! Happy birthday ulit!</p>
 
         <p>-KC</p>
 
@@ -64,7 +66,7 @@ letter.style.display = "none";
 
 envelope.addEventListener("click", () => {
 
-    // 🎵 smooth music start (no alert)
+    // 🎵 smooth fade-in music
     music.volume = 0;
     music.play().then(() => {
         let fade = setInterval(() => {
@@ -82,22 +84,34 @@ envelope.addEventListener("click", () => {
         container.style.display = "none";
         letter.style.display = "block";
 
-        // 🌸 FLOATING PETALS CONFETTI (SLOW + DREAMY)
+        // 🌸 FLOATING PETALS (MIXED PINK + YELLOW)
         let duration = 10000;
         let end = Date.now() + duration;
+
+        const colors = [
+            '#ffeb3b',
+            '#ffd54f',
+            '#fff176',
+            '#f8bbd0',
+            '#f48fb1',
+            '#f06292'
+        ];
 
         (function frame() {
 
             confetti({
                 particleCount: 2,
                 angle: 90,
-                spread: 40,
+                spread: 45,
                 startVelocity: 10,
-                gravity: 0.4,
+                gravity: 0.45,
                 ticks: 400,
                 scalar: 0.9,
                 origin: { x: Math.random(), y: 0 },
-                colors: ['#ffeb3b', '#ffd54f', '#fff176', '#f8bbd0', '#f48fb1']
+                colors: [
+                    colors[Math.floor(Math.random() * colors.length)],
+                    colors[Math.floor(Math.random() * colors.length)]
+                ]
             });
 
             if (Date.now() < end) {
@@ -109,7 +123,7 @@ envelope.addEventListener("click", () => {
     }, 800);
 });
 
-// ⛔ stop music when leaving app/tab
+// ⛔ stop music when leaving tab/app
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         music.pause();

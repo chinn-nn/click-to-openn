@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Nini!</title>
 
-<!-- 🔒 SOCIAL PREVIEW -->
 <meta property="og:title" content="🎁 Click to open">
 <meta property="og:description" content="A surprise is waiting for you">
 <meta property="og:image" content="https://chinn-nn.github.io/click-to-openn/preview.png">
@@ -31,15 +30,13 @@
 
     <div class="message">
 
-        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you genuine happiness, freedom, and good health. Sana lagi mong alagaan ang sarili mo at huwag kalimutang magpahinga.</p>
+        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you happiness, freedom, and good health.</p>
 
-        <p>I know may mga silent battles ka na hindi mo pinapakita or sinasabi sa iba, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
+        <p>I know may silent battles ka, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
 
-        <p>If ever na feel mo na walang makikinig sa’yo or feeling mo burden ka, please remember na nandito lang ako for you. I’ll always try my best to listen and comfort you, and I hope kahit papaano my presence can give you some peace.</p>
+        <p>If ever you feel alone, I’m always here for you.</p>
 
-        <p>By the way, I just want to take this chance to say thank you—thank you for believing in me and for encouraging me sa mga bagay na pinagdududahan ko, especially when it comes to myself. Thank you for listening to my rants and random kwentos, and thank you for being you—for being open sa akin. I really appreciate it.</p>
-
-        <p>Always remember that I’ll embrace you, especially during the times na you feel vulnerable. Don’t forget to always pray, Nini. Love you! Happy birthday ulit!</p>
+        <p>Thank you for everything.</p>
 
         <p>-KC</p>
 
@@ -67,8 +64,16 @@ letter.style.display = "none";
 
 envelope.addEventListener("click", () => {
 
-    music.play().catch(() => {
-        alert("Tap again if music doesn't play");
+    // 🎵 smooth music start (no alert)
+    music.volume = 0;
+    music.play().then(() => {
+        let fade = setInterval(() => {
+            if (music.volume < 0.9) {
+                music.volume += 0.1;
+            } else {
+                clearInterval(fade);
+            }
+        }, 200);
     });
 
     container.style.opacity = "0";
@@ -77,19 +82,20 @@ envelope.addEventListener("click", () => {
         container.style.display = "none";
         letter.style.display = "block";
 
-        // 🌸 SLOW FALLING CONFETTI (RAIN EFFECT)
-        let duration = 8000;
+        // 🌸 FLOATING PETALS CONFETTI (SLOW + DREAMY)
+        let duration = 10000;
         let end = Date.now() + duration;
 
         (function frame() {
 
             confetti({
-                particleCount: 3,
+                particleCount: 2,
                 angle: 90,
-                spread: 60,
-                startVelocity: 25,
-                gravity: 0.8,
-                ticks: 300,
+                spread: 40,
+                startVelocity: 10,
+                gravity: 0.4,
+                ticks: 400,
+                scalar: 0.9,
                 origin: { x: Math.random(), y: 0 },
                 colors: ['#ffeb3b', '#ffd54f', '#fff176', '#f8bbd0', '#f48fb1']
             });
@@ -103,6 +109,7 @@ envelope.addEventListener("click", () => {
     }, 800);
 });
 
+// ⛔ stop music when leaving app/tab
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         music.pause();

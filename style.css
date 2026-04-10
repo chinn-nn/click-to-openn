@@ -6,8 +6,8 @@ body {
     text-align: center;
 }
 
-/* 💛 TOP TEXT */
-.for-you-text {
+/* 💛 TITLE */
+.title {
     font-size: 2rem;
     margin-top: 20px;
     color: #fbc02d;
@@ -41,7 +41,7 @@ body {
     animation: popIn 0.8s ease;
 }
 
-/* ✨ LETTER ANIMATION */
+/* ✨ ANIMATION */
 @keyframes popIn {
     from {
         transform: scale(0.6);
@@ -53,14 +53,14 @@ body {
     }
 }
 
-/* 💬 MESSAGE */
+/* 💬 TEXT */
 .message {
     text-align: left;
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-/* 📸 NINI PHOTO */
+/* 📸 PHOTO */
 .photo-container {
     margin-top: 15px;
     display: flex;
@@ -72,24 +72,11 @@ body {
     max-width: 320px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    animation: photoPop 1s ease;
-}
-
-/* 🌟 PHOTO ANIMATION */
-@keyframes photoPop {
-    from {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 /* 📱 MOBILE */
 @media (max-width: 600px) {
-    .for-you-text {
+    .title {
         font-size: 1.5rem;
     }
 

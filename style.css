@@ -100,10 +100,12 @@ body {
     margin-top: 10px;
 }
 
-/* ⬆ ARROW (STATIC) */
+/* ⬆ ARROW (STATIC SAME AS TEXT) */
 .arrow {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: #b45309;
+    font-weight: bold;
+    margin-bottom: 2px;
 }
 
 /* 💬 CLICK TEXT */

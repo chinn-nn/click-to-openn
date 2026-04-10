@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Nini!</title>
 
-<!-- 🔒 IG PREVIEW (NOW JPG) -->
+<!-- 🔒 IG PREVIEW -->
 <meta property="og:title" content="🎁 Click to open">
 <meta property="og:description" content="A surprise is waiting for you">
-<meta property="og:image" content="https://chinn-nn.github.io/click-to-openn/preview.jpg">
+<meta property="og:image" content="https://chinn-nn.github.io/click-to-openn/preview.png">
 <meta property="og:url" content="https://chinn-nn.github.io/click-to-openn/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -18,37 +18,39 @@
 
 <body>
 
-<div class="for-you-text" id="topText">Happy Birthday Nini!</div>
+<!-- 💛 TITLE -->
+<div class="title">Happy Birthday Nini!</div>
 
+<!-- 💌 ENVELOPE -->
 <div class="envelope-container" id="envelopeContainer">
     <img src="envelope_closed.png" class="envelope" id="envelope">
     <div class="click-text">Click me!</div>
 </div>
 
+<!-- 💛 LETTER -->
 <div class="letter-container" id="letterContainer">
 
     <div class="message">
-        <p>Happy birthday, Nini! Thank you for existing and for our unexpected friendship. I hope your day brings you genuine happiness, freedom, and good health. Sana lagi mong alagaan ang sarili mo at huwag kalimutang magpahinga.</p>
+        <p>Happy birthday, Nini! Thank you for everything. I hope your day brings you happiness and peace.</p>
 
-        <p>I know may mga silent battles ka na hindi mo pinapakita or sinasabi sa iba, and that’s okay. Malalagpasan mo rin lahat ng ‘yan.</p>
+        <p>I know you have silent battles, and that’s okay. You will overcome them.</p>
 
-        <p>If ever na feel mo na walang makikinig sa’yo or feeling mo burden ka, please remember na nandito lang ako for you. I’ll always try my best to listen and comfort you, and I hope kahit papaano my presence can give you some peace.</p>
-
-        <p>By the way, I just want to take this chance to say thank you—thank you for believing in me, for your encouragement, and for listening to my rants and random kwentos. I really appreciate you.</p>
-
-        <p>Always remember that I’ll embrace you, especially during the times na you feel vulnerable. Don’t forget to always pray, Nini. Love you! Happy birthday ulit!</p>
+        <p>Always remember I’m here for you.</p>
 
         <p>-KC</p>
     </div>
 
+    <!-- 📸 PHOTO -->
     <div class="photo-container">
         <img src="nini_photo.png" class="photo">
     </div>
 
 </div>
 
+<!-- 🎵 MUSIC -->
 <audio id="bgMusic" src="eyes_without_a_face.mp3"></audio>
 
+<!-- 🎉 CONFETTI LIBRARY -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
@@ -65,18 +67,39 @@ envelope.addEventListener("click", () => {
         alert("Tap again if music doesn't play");
     });
 
-    container.style.opacity = 0;
+    container.style.opacity = "0";
 
     setTimeout(() => {
         container.style.display = "none";
         letter.style.display = "block";
 
-        confetti({
-            particleCount: 300,
-            spread: 130,
-            origin: { y: 0.6 },
-            colors: ['#ffeb3b', '#ffd54f', '#fff176', '#f8bbd0', '#f48fb1']
-        });
+        // 🎉 CLASSIC CONFETTI (RESTORED)
+        let duration = 6000;
+        let end = Date.now() + duration;
+
+        (function frame() {
+
+            confetti({
+                particleCount: 8,
+                angle: 60,
+                spread: 100,
+                origin: { x: 0 },
+                colors: ['#ffeb3b', '#ffd54f', '#fff176', '#f8bbd0', '#f48fb1']
+            });
+
+            confetti({
+                particleCount: 8,
+                angle: 120,
+                spread: 100,
+                origin: { x: 1 },
+                colors: ['#ffeb3b', '#ffd54f', '#fff176', '#f8bbd0', '#f48fb1']
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+
+        })();
 
     }, 800);
 });
